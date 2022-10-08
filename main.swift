@@ -1,10 +1,11 @@
 import Foundation
+import CoreFoundation
 
 // Add your code below
 func selectionSort(strings:Array<Substring>) -> Array<Substring> {
     var a = strings
     var totalSwaps = 0
-    print("Pass: 0, Swaps: 0/0, Array: \(a)")
+   // print("Pass: 0, Swaps: 0/0, Array: \(a)")
     for x in 0..<a.count-1 {
 //        var swaps = 1
         let index = x
@@ -21,8 +22,8 @@ func selectionSort(strings:Array<Substring>) -> Array<Substring> {
            
         }
         totalSwaps = totalSwaps+1
-            let pass = x + 1
-            print("Pass: \(pass), Swaps: 1/\(totalSwaps), Array: \(a)")
+ //           let pass = x + 1
+  //          print("Pass: \(pass), Swaps: 1/\(totalSwaps), Array: \(a)")
         
     }
     return a
@@ -37,54 +38,17 @@ func readFile(filename:String) -> Array<Substring> {
     //Split the file on endline (\n)
     let lines = contents.split(separator:"\n")
 
-    print("Num words: \(lines.count)")
+//    print("Num words: \(lines.count)")
 
     return lines
 }
 
+var startTime = CFAbsoluteTimeGetCurrent()
 //get the list of strings from user input
 //var strings: Array<String> = readLines()
-var filename = "random.txt"
+var filename = "reverse-ordered-10e4.txt"
 //Arrary of Substrings
 var strings = readFile(filename:filename)
 var sortedArray = selectionSort(strings:strings)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+let timeElapsed = (CFAbsoluteTimeGetCurrent() - startTime) * 1000 
+print("Time Elapsed \(timeElapsed) ms")
